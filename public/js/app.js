@@ -7,10 +7,20 @@ const ReadingItem = function (title, author, category, topic) {
 
 handleBookFormSubmit = function (event) {
   event.preventDefault();
+  console.dir(this);
+  let category = '';
+  const radioButtons = document.querySelectorAll("input[name='category']")
+  radioButtons.forEach((radioButton) => {
+  if (radioButton.checked)
+  {category = radioButton.value}})
+
+
   const readingItem = new ReadingItem(
     this.title.value,
-    this.title.author,
+    this.author.value,
+    category,
   )
+  console.log(readingItem);
 }
 
 const bookCollection = [];
