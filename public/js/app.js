@@ -34,16 +34,21 @@ bookListRefresh = function () {
 
 handleBookFormSubmit = function (event) {
   event.preventDefault();
-  let category = '';
-  const readingItem = new ReadingItem(
-    this.title.value,
-    this.author.value,
-    this.category.value,
-    this.genre.value
-  )
-  bookCollection.push(readingItem);
-  bookListRefresh();
-  this.reset();
+  if (this.title.value === '' || this.author.value === '' || this.category.value === ''){
+    window.alert('Please fill all fields');
+  }
+  else{
+
+    const readingItem = new ReadingItem(
+      this.title.value,
+      this.author.value,
+      this.category.value,
+      this.genre.value
+    )
+    bookCollection.push(readingItem);
+    bookListRefresh();
+    this.reset();
+  }
 }
 
 
