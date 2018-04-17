@@ -34,7 +34,12 @@ bookListRefresh = function () {
 
 handleBookFormSubmit = function (event) {
   event.preventDefault();
-  if (this.title.value === '' || this.author.value === '' || this.category.value === ''){
+  if (
+        this.title.value === '' ||
+        this.author.value === '' ||
+        this.category.value === '' ||
+        this.genre.value === ''
+      ){
     window.alert('Please fill all fields');
   }
   else{
@@ -51,9 +56,21 @@ handleBookFormSubmit = function (event) {
   }
 }
 
+handleButtonClick = function () {
+  const result = window.confirm('Do you want to delete all of the books');
+  if (result) {
+    bookCollection.length = 0;
+    bookListRefresh();
+  }
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const bookForm = document.querySelector('#book-form');
 
   bookForm.addEventListener('submit', handleBookFormSubmit);
+
+  const deleteAllButton = document.querySelector('#delete-all')
+
+  deleteAllButton.addEventListener('click', handleButtonClick);
 });
