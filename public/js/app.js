@@ -67,10 +67,8 @@ handleButtonClick = function () {
 
 document.addEventListener('DOMContentLoaded', () => {
   const bookForm = document.querySelector('#book-form');
-
   bookForm.addEventListener('submit', handleBookFormSubmit);
 
   const deleteAllButton = document.querySelector('#delete-all')
-
   deleteAllButton.addEventListener('click', handleButtonClick);
 });
